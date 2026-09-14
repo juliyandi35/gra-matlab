@@ -1,0 +1,33 @@
+function oA = inputParameters(Rs,Rb,Re,Ls,Lb,Le,A,oA)
+dRs=[Rs-A*Rs Rs Rs+A*Rs];
+dRb=[Rb-A*Rb Rb Rb+A*Rb];
+dRe=[Re-A*Re Re Re+A*Rb];
+dLs=[Ls-A*Ls Ls Ls+A*Ls];
+dLb=[Lb-A*Lb Lb Lb+A*Lb];
+dLe=[Le-A*Le Le Le+A*Lb];
+Rs1=oA (:,1); Rs1(( Rs1== 1))=dRs(1);  Rs1(( Rs1==2)|(Rs1==3))=0;
+Rs2=oA (:,1); Rs2(( Rs2== 2))=dRs(2);  Rs2(( Rs2==1)|(Rs2==3))=0;
+Rs3=oA (:,1); Rs3(( Rs3== 3))=dRs(3); Rs3(( Rs3==1)|(Rs3==2))=0;
+Rs= Rs1+Rs2+Rs3;
+Rb1=oA (:,2); Rb1(( Rb1== 1))=dRb(1);  Rb1(( Rb1==2)|(Rb1==3))=0;
+Rb2=oA (:,2); Rb2(( Rb2== 2))=dRb(2);  Rb2(( Rb2==1)|(Rb2==3))=0;
+Rb3=oA (:,2); Rb3(( Rb3== 3))=dRb(3); Rb3(( Rb3==1)|(Rb3==2))=0;
+Rb= Rb1+Rb2+Rb3;
+Re1=oA (:,3); Re1(( Re1== 1))=dRe(1);  Re1(( Re1==2)|(Re1==3))=0;
+Re2=oA (:,3); Re2(( Re2== 2))=dRe(2);  Re2(( Re2==1)|(Re2==3))=0;
+Re3=oA (:,3); Re3(( Re3== 3))=dRe(3); Re3(( Re3==1)|(Re3==2))=0;
+Re= Re1+Re2+Re3;
+Ls1=oA (:,4); Ls1(( Ls1== 1))=dLs(1);  Ls1(( Ls1==2)|(Ls1==3))=0;
+Ls2=oA (:,4); Ls2(( Ls2== 2))=dLs(2);  Ls2(( Ls2==1)|(Ls2==3))=0;
+Ls3=oA (:,4); Ls3(( Ls3== 3))=dLs(3); Ls3(( Ls3==1)|(Ls3==2))=0;
+Ls= Ls1+Ls2+Ls3;
+Lb1=oA (:,5); Lb1(( Lb1== 1))=dLb(1);  Lb1(( Lb1==2)|(Lb1==3))=0;
+Lb2=oA (:,5); Lb2(( Lb2== 2))=dLb(2);  Lb2(( Lb2==1)|(Lb2==3))=0;
+Lb3=oA (:,5); Lb3(( Lb3== 3))=dLb(3); Lb3(( Lb3==1)|(Lb3==2))=0;
+Lb= Lb1+Lb2+Lb3;
+Le1=oA (:,6); Le1(( Le1== 1))=dLe(1);  Le1(( Le1==2)|(Le1==3))=0;
+Le2=oA (:,6); Le2(( Le2== 2))=dLe(2);  Le2(( Le2==1)|(Le2==3))=0;
+Le3=oA (:,6); Le3(( Le3== 3))=dLe(3); Le3(( Le3==1)|(Le3==2))=0;
+Le= Le1+Le2+Le3;
+oA=[Rs Rb Re Ls Lb Le];
+end

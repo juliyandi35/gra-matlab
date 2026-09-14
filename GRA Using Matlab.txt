@@ -1,0 +1,27 @@
+% Load the data
+data = load('data.csv');
+
+% Normalize the data using min-max normalization
+data_norm = (data - min(data)) ./ (max(data) - min(data));
+
+% Calculate the reference sequence
+ref_seq = mean(data_norm, 1);
+
+% Set the smoothing parameter
+delta = 0.5;
+
+% Calculate the grey relational coefficient
+for i = 1:size(data_norm, 1)
+    for j = 1:size(data_norm, 2)
+        GRC(i,j) = (min([data_norm(i,j), ref_seq(j)]) + delta * max([data_norm(i,j), ref_seq(j)]) - delta * min([data_norm(i,j), ref_seq(j)])) / (max([data_norm(i,j), ref_seq(j)]) + delta * min([data_norm(i,j), ref_seq(j)]));
+    end
+end
+
+% Calculate the grey relational grade
+GRG = mean(GRC, 2);
+
+% Rank the samples
+[~, rank] = sort(GRG, 'descend');
+
+% Display the ranked samples
+disp(rank);

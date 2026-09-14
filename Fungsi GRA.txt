@@ -1,0 +1,19 @@
+Fungsi GRA
+Untuk mencari kombinasi faktor level yang optimal untuk respon yang banyak.
+
+Secara umum, warna hitam menyatakan bahwa informasi sangat sedikit, warna putih menandakan informasi sangat banyak (jelas) dan grey, bermakna informasinya terbatas, tidak lengkap atau tidak menentu.
+
+Grey System adalah sistem yang punya informasi yang tidak lengkap, ada pula istilah angka Grey.
+
+Fungsinya berguna untuk memperjelas hubungan antar faktor/parameter dengan memberi angka pengaruh sebuah faktor terhadap faktor lain dan hubungan antar keduanya.
+
+Step-stepnya
+1. Data preprocessing - Mengatur matriks nilai eigen
+2. Normalisasi data
+3. Menghitung baris deviasi - menentukan perbedaan absolut antara baris perbandingan dan baris acuan dengan rumus.
+4. Menentukan koefisien hubungan abu-abu
+5. Menentukan tingkat hubungan abu-abu.
+
+Perhitungan GRA dilakukan untuk menentukan baris dengan deviasi terendah dengan menggunakan koefisien pembeda Zeta yang bernilai antara 0 dan 1. Umumnya koefisien pembeda Zeta ini bernilai 0,5. Baris dengan deviasi terendah akan menghasilkan GRG dengan nilai tertinggi yaitu 1.
+
+GRG merepresentasikan tingkat korelasi antara acuan dan pembanding. Semakin tinggi GRG, semakin kuat hubungannya.
